@@ -219,4 +219,6 @@ pip-selfcheck.json
 .history
 .ionide
 
+# add model files
+transformer/nlp_course/test-trainer/
 # End of https://www.toptal.com/developers/gitignore/api/jupyternotebooks,visualstudiocode,dotenv,venv,python

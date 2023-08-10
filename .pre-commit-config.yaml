@@ -1,0 +1,49 @@
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.4.0
+    hooks:
+      - id: trailing-whitespace
+        args: [--markdown-linebreak-ext=md, --markdown-linebreak-ext=pandoc]
+      - id: check-merge-conflict
+      - id: check-yaml
+      - id: check-toml
+      - id: fix-byte-order-marker
+      - id: mixed-line-ending
+
+  - repo: https://github.com/psf/black
+    rev: 23.1.0
+    hooks:
+      - id: black
+
+  - repo: https://github.com/codespell-project/codespell
+    rev: v2.2.4
+    hooks:
+      - id: codespell
+        entry: codespell --skip "*.ipynb,*.md"
+
+  - repo: https://github.com/PyCQA/pylint
+    rev: v2.17.3
+    hooks:
+      - id: pylint
+        args: [--output-format=colorized, --jobs=0, --rcfile=.pylintrc]
+
+  - repo: https://github.com/DavidAnson/markdownlint-cli2
+    rev: v0.7.0
+    hooks:
+      - id: markdownlint-cli2
+
+  - repo: https://github.com/pycqa/isort
+    rev: 5.11.5
+    hooks:
+      - id: isort
+        name: isort (python)
+        args: [--profile, black]
+
+  - repo: https://github.com/nbQA-dev/nbQA
+    rev: 1.7.0
+    hooks:
+      - id: nbqa-black
+      - id: nbqa-pyupgrade
+        args: ["--py39-plus"]
+      - id: nbqa-isort
+        args: ["--float-to-top"]
